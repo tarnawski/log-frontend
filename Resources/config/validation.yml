@@ -1,0 +1,14 @@
+LogFrontendBundle\Model\Log:
+    properties:
+        level:
+            - NotBlank: ~
+            - Choice:
+                choices:  [EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, INFO, NOTICE, DEBUG]
+        message:
+            - NotBlank: ~
+            - Length:
+                max:   255
+        context:
+            - NotBlank: ~
+            - Length:
+                max:   600

@@ -1,4 +1,4 @@
 log:
     path:     /{view}
     defaults: { _controller: LogFrontendBundle:Log:index, view: 'default'}
-    methods: [GET]
+    methods: [POST]
