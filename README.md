@@ -1,4 +1,4 @@
-LogViewer
+LogFrontend
 ========
 This bundle allows to log events in your backend via endpoint.
 
@@ -58,3 +58,5 @@ $.post( "your-app.com/logger", {
     "context": "The email address not valid"
 });
 ```
+
+To nicely display log files you can use: [LogViewerBundle](https://github.com/tarnawski/log-viewer)
