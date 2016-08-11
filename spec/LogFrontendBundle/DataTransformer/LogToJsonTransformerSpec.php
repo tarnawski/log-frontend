@@ -18,14 +18,15 @@ class LogToJsonTransformerSpec extends ObjectBehavior
         $log->level = 'ERROR';
         $log->message = 'Wrong path';
         $log->context = 'File not found when try save data';
+
         $data = [
-            'level' => 'ERROR',
+            'level_name' => 'ERROR',
             'message' => 'Wrong path',
             'context' => 'File not found when try save data'
         ];
 
         $result = $this->transform($log);
 
-        $result->shouldBe(json_encode($data));
+        $result->shouldStartWith('{"level_name":"ERROR","message":"Wrong path","context":"File not found when try save data","datetime":');
     }
 }
