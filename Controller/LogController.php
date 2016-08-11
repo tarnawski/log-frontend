@@ -2,7 +2,9 @@
 
 namespace LogFrontendBundle\Controller;
 
+use LogFrontendBundle\Exception\WriterException;
 use LogFrontendBundle\Model\Log;
+use LogFrontendBundle\Writer\LogWriter;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use LogFrontendBundle\Form\Type\LogType;
@@ -24,6 +26,14 @@ class LogController extends BaseController
         }
         /** @var Log $log */
         $log = $form->getData();
+        /** @var LogWriter $logWriter */
+        $logWriter = $this->get('log_frontend.writer');
+
+        try {
+            $logWriter->writeLog($log);
+        } catch (WriterException $e){
+            return JsonResponse::create(['status' => 'ERROR', 'message' => $e->getMessage()], 400);
+        }
 
         return JsonResponse::create(['status' => 'SUCCESS', 'message' => 'Log saved!'], 200);
 

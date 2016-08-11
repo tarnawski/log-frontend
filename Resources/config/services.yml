@@ -1,1 +1,9 @@
 services:
+  log_frontend.data_tarnsformer:
+    class: LogFrontendBundle\DataTransformer\LogToJsonTransformer
+
+  log_frontend.writer:
+    class: LogFrontendBundle\Writer\LogWriter
+    arguments:
+      - '%log_frontend.path%'
+      - '@log_frontend.data_tarnsformer'
