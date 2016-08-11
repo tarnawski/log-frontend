@@ -25,7 +25,7 @@
     },
 
     "autoload": {
-    "psr-4": { "LogViewerBundle\\": "src/LogFrontendBundle" }
+    "psr-4": { "LogFrontendBundle\\": "src/LogFrontendBundle" }
     },
 
     "config": {
