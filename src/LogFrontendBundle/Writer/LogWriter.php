@@ -35,6 +35,6 @@ class LogWriter
 
     private function addNewLineSign($data)
     {
-        return $data.'\n';
+        return $data."\n";
     }
 }

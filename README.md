@@ -24,7 +24,7 @@ $bundles = array(
 3.Register the Routes:
 ---------------------
 ```
-LogViewerBundle:
+LogFrontendBundle:
     resource: "@LogFrontendBundle/Resources/config/routing.yml"
     prefix:   /logger
 ```
