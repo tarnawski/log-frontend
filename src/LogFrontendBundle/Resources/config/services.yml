@@ -2,6 +2,11 @@ services:
   log_frontend.data_tarnsformer:
     class: LogFrontendBundle\DataTransformer\LogToJsonTransformer
 
+  log_frontend.auth:
+    class: LogFrontendBundle\Auth\HostAuth
+    arguments:
+      - '%log_frontend.allow_host%'
+
   log_frontend.writer:
     class: LogFrontendBundle\Writer\LogWriter
     arguments:

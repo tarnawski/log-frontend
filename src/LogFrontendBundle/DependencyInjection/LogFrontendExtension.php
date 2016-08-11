@@ -15,6 +15,7 @@ class LogFrontendExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('log_frontend.path', $config['path']);
+        $container->setParameter('log_frontend.allow_host', $config['allow_host']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

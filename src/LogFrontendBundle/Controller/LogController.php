@@ -2,6 +2,7 @@
 
 namespace LogFrontendBundle\Controller;
 
+use LogFrontendBundle\Auth\HostAuth;
 use LogFrontendBundle\Exception\WriterException;
 use LogFrontendBundle\Model\Log;
 use LogFrontendBundle\Writer\LogWriter;
@@ -17,6 +18,15 @@ class LogController extends BaseController
      */
     public function indexAction(Request $request)
     {
+        /** @var HostAuth $authService */
+        $authService = $this->get('log_frontend.auth');
+        if (!$authService->isGranted($request->getHost())) {
+            return JsonResponse::create([
+                'status' => 'ACCESS DENIED',
+                'message' => sprintf("Host: '%s' not contains in access control list", $request->getHost())
+            ], 401);
+        }
+
         $form = $this->createForm(LogType::class);
         $submittedData = json_decode($request->getContent(), true);
         $form->submit($submittedData);

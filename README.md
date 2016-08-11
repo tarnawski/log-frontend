@@ -34,8 +34,16 @@ LogViewerBundle:
 ```
 log_frontend:
     path: /dev/shm/api-backend/logs/front.log
+    allow_host:
+        - api-backend.dev
+        - ras-backend.dev
 ```
-
+If you wont allow all host:
+```
+log_frontend:
+    path: /dev/shm/api-backend/logs/front.log
+    allow_host: ~
+```
 
 You can log the events by send request with body:
 ```

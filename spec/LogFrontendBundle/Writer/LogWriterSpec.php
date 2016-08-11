@@ -3,7 +3,6 @@
 namespace spec\LogFrontendBundle\Writer;
 
 use LogFrontendBundle\DataTransformer\LogToJsonTransformer;
-use LogFrontendBundle\Model\Log;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
